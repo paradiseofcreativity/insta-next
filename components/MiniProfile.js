@@ -4,7 +4,7 @@ function MiniProfile() {
     const { data: session } = useSession();
 
     const onSignOut = () => {
-        signOut({ callbackUrl: '/auth/signin' });
+        signOut({ callbackUrl: '/auth/login' });
     };
 
     return (

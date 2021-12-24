@@ -8,6 +8,7 @@ export default NextAuth({
       clientId: process.env.FIREBASE_GOOGLE_CLIENT_ID,
       clientSecret: process.env.FIREBASE_GOOGLE_CLIENT_SECRET,
     }),
+    // ...add more providers here
   ],
 
   secret: process.env.JWT_SECRET,
@@ -19,7 +20,7 @@ export default NextAuth({
   },
 
   pages: {
-    signIn: '/auth/signin',
+    signIn: '/auth/login',
   },
 
   callbacks: {

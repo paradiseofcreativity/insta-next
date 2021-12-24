@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import dynamic from "next/dynamic";
 import faker from 'faker';
-import Suggestion from './Suggestion';
+
+const Suggestion = dynamic(() => import('./Suggestion'));
 
 function Suggestions() {
   const [suggestions, setSuggestions] = useState([]);

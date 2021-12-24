@@ -4,6 +4,6 @@ module.exports = {
         avatarGenerator: 'https://i.pravatar.cc/150',
     },
     images: {
-        domains: ['paradiseofcreativity.files.wordpress.com'],
+        domains: ['paradiseofcreativity.files.wordpress.com', 'firebasestorage.googleapis.com'],
     },
 };
