@@ -16,7 +16,7 @@ function MiniProfile() {
                 <h3 className='text-sm text-gray-400'>Welcome to Instagram</h3>
             </div>
 
-            <button onClick={onSignOut} className='text-blue-400 text-sm font-semibold'>Sign out</button>
+            <button onClick={onSignOut} className='text-blue-400 text-sm font-semibold'>Log out</button>
         </div>
     )
 }
