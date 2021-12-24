@@ -56,37 +56,28 @@ function UploadModal() {
     setUploading(true);
 
     try {
-      console.log('setUploading: turned on');
-
       const post = {
         username: session.user?.username,
         caption: captionRef.current.value || '',
         profileImage: session.user?.image,
         timestamp: serverTimestamp(),
       };
-      console.log('post:', post);
 
       // create a post & add to firestore 'posts' collection
       const docRef = await addDoc(collection(db, 'posts'), post);
-
-      console.log('docRef:', docRef);
 
       // get the post id for the newly created post, docRef.id
 
       // upload the image to firbase storage with the post id
       const imageRef = ref(storage, `posts/${docRef.id}/image`);
-      console.log('imageRef:', imageRef);
 
       // get a download URL from firebase storage and update the original post with image
       await uploadString(imageRef, file, 'data_url').then(async snapshot => {
         const downloadURL = await getDownloadURL(imageRef);
-        console.log('downloadURL:', downloadURL);
         await updateDoc(doc(db, 'posts', docRef.id), {
           image: downloadURL,
         });
       });
-
-      console.log('DONE--');
     } catch (error) {
       console.log('UPLOAD POST ERROR:', error);
     }

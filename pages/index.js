@@ -1,14 +1,18 @@
 import { getSession } from 'next-auth/react';
-import Feed from '../components/Feed';
-import Header from '../components/Header';
-import Meta from '../components/Meta';
-import UploadModal from '../components/UploadModal';
+import dynamic from "next/dynamic";
+
+const Feed = dynamic(() => import("../components/Feed"));
+const Header = dynamic(() => import("../components/Header"));
+const Meta = dynamic(() => import("../components/Meta"));
+const UploadModal = dynamic(() => import("../components/UploadModal"));
 
 export default function Home() {
   return (
     <div className="bg-gray-50 h-screen overflow-y-scroll scrollbar-hide">
       <Meta title="Instagram 2.0" />
-      <Header />      
+      
+      <Header />
+      
       {/* content */}
       <Feed />
 

@@ -1,9 +1,11 @@
 import classNames from 'classnames';
 import { useSession } from 'next-auth/react';
-import MiniProfile from './MiniProfile';
-import Posts from './Posts';
-import Stories from './Stories';
-import Suggestions from './Suggestions';
+import dynamic from "next/dynamic";
+
+const MiniProfile = dynamic(() => import('./MiniProfile'));
+const Posts = dynamic(() => import('./Posts'));
+const Stories = dynamic(() => import('./Stories'));
+const Suggestions = dynamic(() => import('./Suggestions'));
 
 function Feed() {
   const { data: session } = useSession();

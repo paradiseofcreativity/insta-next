@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import dynamic from "next/dynamic";
 import faker from 'faker';
-import Story from './Story';
+
+const Story = dynamic(() => import('./Story'));
 
 function Stories() {
   const [stories, setStories] = useState([]);

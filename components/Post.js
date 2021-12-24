@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import dynamic from "next/dynamic";
 import {
   BookmarkIcon,
   ChatIcon,
@@ -19,7 +20,8 @@ import {
   setDoc,
 } from 'firebase/firestore';
 import { db } from '../firebase';
-import Comments from './Comments';
+
+const Comments = dynamic(() => import('./Comments'));
 
 function Post({ id, post, session }) {
   const { username, profileImage, image, caption } = post;
@@ -95,7 +97,7 @@ function Post({ id, post, session }) {
   );
 
   return (
-    <div className="bg-white my-7 border rounded-sm">
+    <div className="bg-white my-7 border rounded-sm mx-1">
       {/* header */}
       <div className="flex items-center p-5">
         <img
